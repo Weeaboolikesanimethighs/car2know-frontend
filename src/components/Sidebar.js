@@ -1,19 +1,35 @@
-const Sidebar = () => {
-    return (
-      <aside className="bg-gray-800 text-white h-screen w-64 fixed">
-        <div className="p-4">
-          <h1 className="text-2xl font-bold">Sidebar</h1>
-        </div>
-        <nav className="mt-4">
-          <ul>
-            <li className="mb-2"><a href="#" className="text-gray-300 hover:text-white">Home</a></li>
-            <li className="mb-2"><a href="#" className="text-gray-300 hover:text-white">About</a></li>
-            <li className="mb-2"><a href="#" className="text-gray-300 hover:text-white">Services</a></li>
-            <li className="mb-2"><a href="#" className="text-gray-300 hover:text-white">Contact</a></li>
-          </ul>
-        </nav>
-      </aside>
-    );
-  };
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-  export default Sidebar;
+const Sidebar = () => {
+  return (
+    <aside className="bg-white h-screen w-16 fixed border border-gray-500">
+      <div className="p-4">
+        <img src="/Logo_notext.png" alt="Logo" className="w-full" />
+      </div>
+      <div className="p-4">
+        <a href="#" className="icon-link cursor-pointer">
+          <FontAwesomeIcon
+            icon={faHome}
+            className="icon text-gray-300 border border-2 border-gray-300 p-2 rounded mb-2"
+          />
+        </a>
+        <a href="#" className="icon-link cursor-pointer">
+          <FontAwesomeIcon
+            icon={faUser}
+            className="icon text-gray-300 border border-2 border-gray-300 p-2 rounded mb-2"
+          />
+        </a>
+        <a href="#" className="icon-link cursor-pointer">
+           <FontAwesomeIcon
+            icon={faHome}
+            className="icon text-gray-300 border border-2 border-gray-300 p-2 rounded mb-2"
+        />
+        </a>
+      </div>
+    </aside>
+  );
+};
+
+export default Sidebar;
