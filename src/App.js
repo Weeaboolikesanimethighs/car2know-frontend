@@ -1,17 +1,28 @@
-import Sidebar from './components/Sidebar.js';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar'; // Adjust the import path for Sidebar
+import Home from './pages/Home'; 
+import User from './pages/User';
+import Contact from './pages/Contact';
+import Login from './pages/Login';
 
-function App() {
+const App = () => {
   return (
-<div className="flex">
-      <Sidebar />
-      <div className="ml-64 p-4">
-        {/* Your page content goes here */}
-        <h1 className="text-3xl font-bold">Main Content</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+    <Router>
+      <div className="flex">
+        <Sidebar />
+
+        <main className="ml-16 p-4">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
       </div>
-    </div>
-  )
-}
+    </Router>
+  );
+};
 
 export default App;
