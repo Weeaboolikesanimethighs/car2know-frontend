@@ -10,9 +10,9 @@ import Login from './pages/Login';
 const App = () => {
   return (
     <Router>
-      <div className="relative min-h-screen flex">
+      <div className="flex min-h-screen">
         <Sidebar />
-        <div className="flex flex-col flex-grow ml-16">
+        <div className="flex flex-col flex-grow ml-16"> {/* Adjusted with ml-16 for left margin */}
           <main className="p-4 flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
