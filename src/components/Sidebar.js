@@ -15,19 +15,19 @@ const Sidebar = () => {
         <Link to="/user" className="icon-link cursor-pointer">
           <FontAwesomeIcon
             icon={faUser}
-            className="icon text-gray-300 border border-2 border-gray-300 p-2 rounded mb-2"
+            className="icon text-gray-300  border-2 border-gray-300 p-2 rounded mb-2"
           />
         </Link>
         <Link to="/login" className="icon-link cursor-pointer">
           <FontAwesomeIcon
             icon={faRightToBracket}
-            className="icon text-gray-300 border border-2 border-gray-300 p-2 rounded mb-2"
+            className="icon text-gray-300  border-2 border-gray-300 p-2 rounded mb-2"
           />
         </Link>
         <Link to="/contact" className="icon-link cursor-pointer">
           <FontAwesomeIcon
             icon={faEnvelope}
-            className="icon text-gray-300 border border-2 border-gray-300 p-2 rounded mb-2"
+            className="icon text-gray-300  border-2 border-gray-300 p-2 rounded mb-2"
           />
         </Link>
       </div>
