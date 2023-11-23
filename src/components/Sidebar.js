@@ -1,17 +1,26 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faEnvelope, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faUser,
+  faEnvelope,
+  faRightToBracket,
+} from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <aside className="bg-white h-screen w-16 fixed border border-gray-500">
       <div className="p-4">
         <Link to="/">
-          <img src="/Logo_notext.png" alt="Logo" className="w-full cursor-pointer" />
-        </Link>      
-        </div>
-        <div className="p-4">
+          <img
+            src="/Logo_notext.png"
+            alt="Logo"
+            className="w-full cursor-pointer"
+          />
+        </Link>
+      </div>
+      <div className="p-4">
         <Link to="/user" className="icon-link cursor-pointer">
           <FontAwesomeIcon
             icon={faUser}
