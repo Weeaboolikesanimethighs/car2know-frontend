@@ -1,8 +1,9 @@
 import React from 'react';
+import LoginWindow from '../components/LoginWindow'
 
 const Login = () => {
   return <div>
-    <h1>This is the Login Page.</h1>
+    <LoginWindow/>
     </div>;
 };
 
