@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useAuth } from '../contexts/AuthContext';
+import {useEffect} from 'react';
 
 const LoginWindow = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus, setLoginStatus] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = () => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{6,}$/;
@@ -20,7 +22,8 @@ const LoginWindow = () => {
     } else {
       console.log('Login successful!');
       setLoginStatus('');
-      navigate('/user')
+      login(username)
+      navigate('/user', { state: { username } });
     }
   };
 
