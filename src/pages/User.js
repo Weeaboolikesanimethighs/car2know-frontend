@@ -15,6 +15,7 @@ const User = () => {
         <Task status="Completed" name="Mirac Fidanci" />
         <Task status="In Progress" name="Fikri Öksum" />
         <Task status="Not Started" name="Gabriel Montemayor" />
+        <LogoutButton />
       </div>
       <div>
         <Details />
