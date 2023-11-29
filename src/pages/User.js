@@ -12,10 +12,11 @@ const User = () => {
   return (
     <div className="grid grid-cols-2">
       <div>
+      <h2>Welcome, {username || 'Guest'}!</h2>
         <Task status="Completed" name="Mirac Fidanci" />
         <Task status="In Progress" name="Fikri Öksum" />
         <Task status="Not Started" name="Gabriel Montemayor" />
-        <LogoutButton />
+        {isAuthenticated && <LogoutButton />}
       </div>
       <div>
         <Details />
