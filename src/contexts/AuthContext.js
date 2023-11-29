@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     setUsername(user);
 
     localStorage.setItem('auth', JSON.stringify(true));
-    localStorage.setItem('username', user); // Save the username in localStorage
+    localStorage.setItem('username', user);
   };
 
   const logout = () => {
