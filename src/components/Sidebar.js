@@ -1,11 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faRightToBracket, faSignOutAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext'; // Adjust the path based on your project structure
+import { useAuth } from '../contexts/AuthContext';
 
 const Sidebar = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout} = useAuth();
   const navigate = useNavigate();
 
   const handleUserIconClick = () => {
@@ -18,6 +18,13 @@ const Sidebar = () => {
     }
   };
 
+  const handleLogoutClick = () => {
+    // Logout the user
+    logout();
+    // Redirect to the login page after logout
+    navigate('/login');
+  };
+
   return (
     <aside className="bg-white h-screen w-16 fixed border border-gray-500 z-20">
       <div className="p-4">
@@ -28,23 +35,25 @@ const Sidebar = () => {
       <div className="p-4">
         <div onClick={handleUserIconClick} className="icon-link cursor-pointer">
           <FontAwesomeIcon
-            icon={faUser}
+            icon={isAuthenticated ? faUser : faRightToBracket}
             className="icon text-gray-500  border-2 border-gray-300 p-2 rounded mb-2"
           />
         </div>
-        <Link to="/login" className="icon-link cursor-pointer">
-          <FontAwesomeIcon
-            icon={faRightToBracket}
-            className="icon text-gray-500  border-2 border-gray-300 p-2 rounded mb-2"
-          />
-        </Link>
+        {isAuthenticated && (
+          <div onClick={handleLogoutClick} className="icon-link cursor-pointer">
+            <FontAwesomeIcon
+              icon={faSignOutAlt}
+              className="icon text-gray-500  border-2 border-gray-300 p-2 rounded mb-2"
+            />
+          </div>
+        )}
         <Link to="/contact" className="icon-link cursor-pointer">
           <FontAwesomeIcon
             icon={faEnvelope}
             className="icon text-gray-500  border-2 border-gray-300 p-2 rounded mb-2"
           />
         </Link>
-      </div>
+      </div>    
     </aside>
   );
 };

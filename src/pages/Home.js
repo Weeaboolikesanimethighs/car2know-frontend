@@ -1,10 +1,11 @@
 import React from 'react';
+import AddCarButton from '../components/AddCarButton';
 
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to the Homepage</h1>
-      <p>This is some text on the homepage.</p>
+      <h1>Car2Know 🚗</h1>
+      <AddCarButton/>
     </div>
   );
 };

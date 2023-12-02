@@ -1,8 +1,9 @@
 import React from "react";
 import Task from "../components/Task";
-import LogoutButton from '../components/LogoutButton'; // Import the LogoutButton component
+//import LogoutButton from '../components/LogoutButton'; // Import the LogoutButton component
 import Details from '../components/Details'
 import { useAuth } from '../contexts/AuthContext';
+import AddCarButton from "../components/AddCarButton";
 
 
 const User = () => {
@@ -16,7 +17,6 @@ const User = () => {
         <Task status="Completed" name="Mirac Fidanci" />
         <Task status="In Progress" name="Fikri Öksum" />
         <Task status="Not Started" name="Gabriel Montemayor" />
-        {isAuthenticated && <LogoutButton />}
       </div>
       <div>
         <Details />
