@@ -6,6 +6,11 @@ const Footer = () => {
       {/* Your footer content goes here */}
       <div className="container mx-auto">
         <p className="text-center">© 2023 KFZ Sarp</p>
+        <p className="text-center">
+        <a href="/impressum" className="text-gray-300 hover:text-white">
+          Impressum
+        </a>
+        </p>
       </div>
     </footer>
   );

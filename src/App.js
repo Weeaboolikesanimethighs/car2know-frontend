@@ -6,7 +6,9 @@ import User from './pages/User';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Home from './pages/Home';
-import { AuthProvider } from './contexts/AuthContext'; // Import the AuthProvider
+import Impressum from './pages/Impressum';
+import { AuthProvider } from './contexts/AuthContext';
+
 
 const App = () => {
   return (
@@ -21,6 +23,7 @@ const App = () => {
                 <Route path="/user" element={<User />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/impressum" element={<Impressum />} />
               </Routes>
             </main>
             <Footer />
