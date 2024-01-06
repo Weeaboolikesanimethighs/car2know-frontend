@@ -8,7 +8,7 @@ const Home = () => {
       <h1>Car2Know 🚗</h1>
       <AddCarButton/>
 
-      <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
+      <CookieConsent>Diese Seite benötigt Cookies um optimal zu laufen.</CookieConsent>
     </div>
   );
 };
