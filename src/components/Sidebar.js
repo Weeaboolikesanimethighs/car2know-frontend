@@ -1,20 +1,23 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faRightToBracket, faSignOutAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faRightToBracket, faSignOutAlt, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 const Sidebar = () => {
-  const { isAuthenticated, logout} = useAuth();
+  const { isAuthenticated, logout, isAdmin} = useAuth();
   const navigate = useNavigate();
 
   const handleUserIconClick = () => {
-    if (isAuthenticated) {
+    if (isAuthenticated & !isAdmin) {
       // If the user is authenticated, navigate to the user page
       navigate('/user');
-    } else {
+    } else if(isAuthenticated & isAdmin) {
       // If the user is not authenticated, navigate to the login page
-      navigate('/login');
+      navigate('/admin');
+    }
+    else{
+      navigate('/login')
     }
   };
 
@@ -35,7 +38,7 @@ const Sidebar = () => {
       <div className="p-4">
         <div onClick={handleUserIconClick} className="icon-link cursor-pointer">
           <FontAwesomeIcon
-            icon={isAuthenticated ? faUser : faRightToBracket}
+            icon={faRightToBracket }
             className="icon text-gray-500  border-2 border-gray-300 p-2 rounded mb-2"
           />
         </div>
@@ -46,7 +49,7 @@ const Sidebar = () => {
               className="icon text-gray-500  border-2 border-gray-300 p-2 rounded mb-2"
             />
           </div>
-        )}
+        )}   
         <Link to="/contact" className="icon-link cursor-pointer">
           <FontAwesomeIcon
             icon={faEnvelope}

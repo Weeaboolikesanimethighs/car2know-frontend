@@ -19,10 +19,15 @@ const LoginWindow = () => {
     } else if (!passwordRegex.test(password)) {
       setLoginStatus('Das Passwort ist falsch');
     
-    } else {
-      console.log('Login successful!');
+    } else if(username === "admin"){
       setLoginStatus('');
       login(username)
+      navigate('/admin', { state: { username } });
+    }
+    
+    else {
+      console.log('Login successful!');
+      setLoginStatus('');
       navigate('/user', { state: { username } });
     }
   };
