@@ -142,7 +142,8 @@ const CarForm = ({ onSubmit, onCancel }) => {
             name="bemerkungen"
             value={carDetails.bemerkungen}
             onChange={handleChange}
-            className="w-full p-2 border rounded focus:outline-none focus:border-green-500"
+            className="w-full p-2 border rounded focus:outline-none focus:border-green-500 h-20"
+            style={{ resize: "none" }}
           />
         </div>
         {/* Add more input fields for other details */}
