@@ -63,7 +63,7 @@ const Details = ({ person }) => {
       </div>
       <p className="font-bold pt-5">Autodetails</p>
       <div className="grid grid-cols-3">
-        <div>Kennezichen</div>
+        <div>Kennzeichen</div>
         <div>Hersteller</div>
         <div>Modell</div>
       </div>

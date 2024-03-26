@@ -14,10 +14,18 @@ const AdminPage = () => {
 
   const [notifications, setNotifications] = useState([]);
 
-  const [index, setIndex] = useState(1);
+  const [currDetails, setCurrDetails] = useState({});
 
-  const openDetailWindow = (index) => {
-    setDetailsWindowVisible(!isDetailsWindowVisible);
+  const openDetailWindow = (details) => {
+    if (currDetails.id === details.id && isDetailsWindowVisible === true) {
+      setDetailsWindowVisible(!isDetailsWindowVisible);
+      setCurrDetails({});
+    } else if (isDetailsWindowVisible === true) {
+      setCurrDetails(details);
+    } else {
+      setDetailsWindowVisible(!isDetailsWindowVisible);
+      setCurrDetails(details);
+    }
   };
 
   const handleNotificationClick = (notification) => {
@@ -29,16 +37,19 @@ const AdminPage = () => {
 
   let tasks = [
     {
+      id: 0,
       firstname: "Mirac",
       lastname: "Fidanci",
       status: "Completed",
     },
     {
+      id: 1,
       firstname: "Fikri",
       lastname: "Öksüm",
       status: "In Progress",
     },
     {
+      id: 2,
       firstname: "Gabriel",
       lastname: "Montemayor",
       status: "Not Started",
@@ -49,13 +60,13 @@ const AdminPage = () => {
     <div className="grid grid-cols-2">
       <div>
         <h2>Welcome, {username || "Guest"}!</h2>
-        <Task onClick={openDetailWindow} person={tasks[0]} />
-        <Task onClick={openDetailWindow} person={tasks[1]} />
-        <Task onClick={openDetailWindow} person={tasks[2]} />
+        <Task onClick={() => openDetailWindow(tasks[0])} person={tasks[0]} />
+        <Task onClick={() => openDetailWindow(tasks[1])} person={tasks[1]} />
+        <Task onClick={() => openDetailWindow(tasks[2])} person={tasks[2]} />
       </div>
-      <div>
+      <div className="absolute right-0 mt-10 mr-5 z-10">
         {isRequestWindowVisible && (
-          <div className="absolute right-0 mt-10 mr-4 bg-white border rounded shadow-md p-4 z-10">
+          <div className="bg-white border rounded shadow-md p-4">
             {/* Benachrichtigungen */}
             {notifications.length > 0 ? (
               notifications.map((notification, index) => (
@@ -76,7 +87,7 @@ const AdminPage = () => {
           </div>
         )}
       </div>
-      <div>{isDetailsWindowVisible && <Details person={tasks[index]} />}</div>
+      <div>{isDetailsWindowVisible && <Details person={currDetails} />}</div>
       <div
         className="fixed right-10"
         style={{ bottom: "calc(5% + 3rem)" }} // Hier wird der Abstand zum unteren Rand angepasst
