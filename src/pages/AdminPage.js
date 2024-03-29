@@ -2,6 +2,7 @@ import React from "react";
 import Task from "../components/Task";
 //import LogoutButton from '../components/LogoutButton'; // Import the LogoutButton component
 import Details from "../components/Details";
+import TaskList from "../components/TaskList";
 import { useAuth } from "../contexts/AuthContext";
 import { useState } from "react";
 
@@ -58,12 +59,7 @@ const AdminPage = () => {
 
   return (
     <div className="grid grid-cols-2">
-      <div>
-        <h2>Welcome, {username || "Guest"}!</h2>
-        <Task onClick={() => openDetailWindow(tasks[0])} person={tasks[0]} />
-        <Task onClick={() => openDetailWindow(tasks[1])} person={tasks[1]} />
-        <Task onClick={() => openDetailWindow(tasks[2])} person={tasks[2]} />
-      </div>
+      <TaskList tasks={tasks} onClick={openDetailWindow} />
       <div className="absolute right-0 mt-10 mr-5 z-10">
         {isRequestWindowVisible && (
           <div className="bg-white border rounded shadow-md p-4">
